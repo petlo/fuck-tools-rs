@@ -6,7 +6,7 @@ authors = ["fuck petlo@foxmail.com"]
 license = "MIT OR Apache-2.0"
 description = "A wonderful Rust library"
 repository = "https://github.com/petlo/fuck-tools-rs.git"
-documentation = ""
+documentation = "https://github.com/petlo/fuck-tools-rs.git"
 readme = "README.md"
 categories = ["fuck-tools"]
 
