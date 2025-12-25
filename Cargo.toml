@@ -2,13 +2,13 @@
 name = "fuck-tools-rs"
 version = "0.0.1"
 edition = "2024"
-authors = ["fuck petlo@foxmail.com"]
+authors = ["petlo petlo@foxmail.com"]
 license = "MIT OR Apache-2.0"
-description = "A wonderful Rust library"
+description = "Fuck Tools"
 repository = "https://github.com/petlo/fuck-tools-rs.git"
 documentation = "https://github.com/petlo/fuck-tools-rs.git"
 readme = "README.md"
-categories = ["fuck-tools"]
+categories = ["development-tools"]
 
 [dependencies]
 serde = { version = "1.0.228", features = ["derive"] }
