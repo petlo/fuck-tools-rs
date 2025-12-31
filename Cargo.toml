@@ -11,19 +11,9 @@ readme = "README.md"
 categories = ["development-tools"]
 
 [dependencies]
-serde = { version = "1.0.228", features = ["derive"] }
-serde_json = { version = "1.0.147", features = ["default"] }
-anyhow = { version = "1.0.100", features = ["default"] }
-thiserror = { version = "2.0.17", features = ["default"] }
-log = { version = "0.4.29", features = ["serde"] }
 snowflake-rs = { version = "0.1.1" }
-
-
 chrono = { version = "0.4.42", features = ["serde"] } # 日期支持
-tokio = { version = "1.48.0", features = ["full"] } # 异步支持
 uuid = { version = "1.19.0", features = ["v4", "v7", "serde"] } # uuid 支持
-regex = {version = "1.12.2",features = ["default"]} # 正则
-
 
 # 禁止使用 unsafe 代码
 [workspace.lints.rust]

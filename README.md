@@ -1,16 +1,35 @@
-# Your Crate Fuck Tools
+# Fuck Tools Rs
 
-Brief description.
+[![Crates.io](https://img.shields.io/crates/v/fuck-tools-rs.svg)](https://crates.io/crates/fuck-tools-rs)
+[![Docs.rs](https://docs.rs/fuck-tools-rs/badge.svg)](https://docs.rs/fuck-tools-rs)
+[![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)]()
+[![Rust](https://img.shields.io/badge/rust-1.60+-orange.svg)](https://www.rust-lang.org)
 
-## Features
+一个高效的 Rust 工具库，提供时间处理、ID 操作等常用功能。
 
-- Feature 1
-- Feature 2
+## ✨ 特性
 
-## Installation
+### ⏰ 时间工具 (Time Tools)
+- **格式化转换**: 灵活的时间格式转换和解析
+- **时间计算**: 时间加减、时间差计算
+- **时间戳**: 秒级/毫秒级时间戳获取和转换
+- **时区支持**: 本地时间和 UTC 时间处理
 
-Add to your `Cargo.toml`:
+### 🆔 ID 工具 (ID Tools)
+- **UUID 生成**: V4 V7版本 UUID 生成
+- **ID 解析**: UUID 字符串解析和验证
+- **Snowflake ID**: 雪花 ID 生成器
+- **ID 转换**: uuid 与字符串相互转换
+
+### 🔧 其他工具
+- **字符串处理**: 常用字符串操作
+- **数值转换**: 安全的类型转换
+- **错误处理**: 统一的错误类型
+
+## 📦 安装
+
+在 `Cargo.toml` 中添加依赖：
 
 ```toml
 [dependencies]
-your-crate = "0.0.1"
+fuck-tools-rs = "0.0.1"
