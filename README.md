@@ -40,4 +40,4 @@
 
 ```toml
 [dependencies]
-fuck-tools-rs = "0.0.2"
+fuck-tools-rs = "0.0.3"
