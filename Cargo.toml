@@ -14,6 +14,10 @@ categories = ["development-tools"]
 snowflake-rs = { version = "0.1.1" }
 chrono = { version = "0.4.42", features = ["serde"] } # 日期支持
 uuid = { version = "1.19.0", features = ["v4", "v7", "serde"] } # uuid 支持
+ring = { version = "0.17.14", features = ["default"] } # 加密库
+hex = { version = "0.4.3", features = ["default"] }
+base64 = { version = "0.22.1", features = ["default"] }
+md-5 = { version = "0.10.6", features = ["default"] }
 
 # 禁止使用 unsafe 代码
 [workspace.lints.rust]

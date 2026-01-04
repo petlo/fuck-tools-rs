@@ -12,9 +12,6 @@
 `cargo clippy`  # 代码检查
 `cargo fmt`  # 格式化代码
 
-# 1. 检查包是否能正常构建
-`cargo build --release`
-
 # 2. 运行测试
 `cargo test`
 
