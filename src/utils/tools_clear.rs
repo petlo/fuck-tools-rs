@@ -2,8 +2,12 @@ pub struct ClearTools;
 
 impl ClearTools {
     /// 清理字符串：移除双引号并修剪空格
-    pub fn clean_str(content: &str) -> String {
-        content.replace("\"", "").trim().to_string()
+    pub fn clean_str(content: String) -> String {
+        content
+            .replace("\"", "")
+            .replace("\n", "")
+            .trim()
+            .to_string()
     }
 
     /// 移除所有空白字符（空格、制表符、换行等）
@@ -31,7 +35,7 @@ impl ClearTools {
     }
 
     /// 移除控制字符和非打印字符
-    pub fn remove_control_chars(content: &str) -> String {
+    pub fn remove_control_chars(content: String) -> String {
         content.chars().filter(|c| !c.is_control()).collect()
     }
 
