@@ -13,7 +13,11 @@ pub struct PwdUser {
 
 impl PwdUser {
     pub fn new(id: i64, username: String, email: String) -> PwdUser {
-        Self { id, username, email }
+        Self {
+            id,
+            username,
+            email,
+        }
     }
 }
 

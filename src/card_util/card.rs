@@ -213,7 +213,11 @@ impl CardUtil {
         }
 
         let mod_value = sum % 11;
-        let check_code = card_no.chars().nth(17).unwrap_or_default().to_ascii_uppercase();
+        let check_code = card_no
+            .chars()
+            .nth(17)
+            .unwrap_or_default()
+            .to_ascii_uppercase();
 
         check_codes[mod_value as usize] == check_code
     }

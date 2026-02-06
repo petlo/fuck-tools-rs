@@ -51,4 +51,4 @@
 
 ```toml
 [dependencies]
-fuck-tools-rs = "0.0.4"
+fuck-tools-rs = "0.0.5"
