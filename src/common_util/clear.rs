@@ -1,11 +1,13 @@
-pub struct ClearTools;
+pub struct ClearUtil;
 
-impl ClearTools {
+impl ClearUtil {
     /// 清理字符串：移除双引号并修剪空格
     pub fn clean_str(content: String) -> String {
         content
             .replace("\"", "")
             .replace("\n", "")
+            .replace("\r", "")
+            .replace(" ", "")
             .trim()
             .to_string()
     }

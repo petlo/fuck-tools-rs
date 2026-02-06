@@ -1,9 +1,9 @@
 use snowflake_rs::{STANDARD_EPOCH, SnowFlakeId};
 use uuid::Uuid;
 
-pub struct IdTools;
+pub struct IdUtil;
 
-impl IdTools {
+impl IdUtil {
     /// 生成雪花ID
     pub fn gen_snowflake_id() -> Result<u64, String> {
         SnowFlakeId::new(1, STANDARD_EPOCH).generate_id()

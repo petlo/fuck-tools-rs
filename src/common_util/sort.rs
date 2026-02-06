@@ -1,9 +1,9 @@
 use serde_json::Value;
 use std::collections::BTreeMap;
 
-pub struct SortTools;
+pub struct SortUtil;
 
-impl SortTools {
+impl SortUtil {
     pub fn sort_json_by_key(json_str: &str) -> Result<String, serde_json::Error> {
         let value: Value = serde_json::from_str(json_str)?;
         if let Value::Object(obj) = value {

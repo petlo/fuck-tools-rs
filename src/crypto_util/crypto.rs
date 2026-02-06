@@ -1,12 +1,12 @@
-use base64::Engine;
 use base64::prelude::BASE64_STANDARD;
+use base64::{DecodeError, Engine};
 use hex::FromHexError;
 use md5::{Digest, Md5};
 use ring::digest;
 
-pub struct CryptoTools;
+pub struct CryptoUtil;
 
-impl CryptoTools {
+impl CryptoUtil {
     pub fn md5_hex(str: &str) -> String {
         let mut hasher = Md5::new();
         hasher.update(str);
@@ -25,8 +25,11 @@ impl CryptoTools {
         BASE64_STANDARD.encode(bytes)
     }
 
-    pub fn base64_decode(bytes: &[u8]) -> Option<Vec<u8>> {
-        BASE64_STANDARD.decode(bytes).ok()
+    pub fn base64_decode(bytes: &[u8]) -> Result<Vec<u8>, DecodeError> {
+        match BASE64_STANDARD.decode(bytes) {
+            Ok(decoded) => Ok(decoded),
+            Err(err) => Err(err),
+        }
     }
 
     pub fn sha_1(str: &str) -> String {

@@ -2,22 +2,22 @@
 mod tests {
     use base64::Engine;
     use base64::prelude::BASE64_STANDARD;
-    use fuck_tools_rs::utils::tools_crypto::CryptoTools;
-    use fuck_tools_rs::utils::tools_sm::SmTools;
+    use fuck_tools_rs::crypto_util::crypto::CryptoUtil;
+    use fuck_tools_rs::crypto_util::sm::SmUtil;
 
     #[test]
     fn test_sha_1() {
-        println!("{}", CryptoTools::sha_1("Hello world"));
+        println!("{}", CryptoUtil::sha_1("Hello world"));
     }
 
     #[test]
     fn test_sha_256() {
-        println!("{}", CryptoTools::sha_256("Hello world"));
+        println!("{}", CryptoUtil::sha_256("Hello world"));
     }
 
     #[test]
     fn test_sm3() {
-        let data = SmTools::sm3("123456".as_bytes());
+        let data = SmUtil::sm3("123456".as_bytes());
         let data = hex::decode(data).unwrap_or_default();
         println!("{}", BASE64_STANDARD.encode(data));
     }
@@ -25,7 +25,7 @@ mod tests {
     #[test]
     fn tst_sm2() {
         let private_key = "72d44a9e91a1dd3055540aafe16d8bd2a4ba88d3";
-        let dat = SmTools::sm2_sign(private_key, "123456");
+        let dat = SmUtil::sm2_sign(private_key, "123456");
         println!("{dat}");
     }
 
@@ -33,7 +33,7 @@ mod tests {
     fn test_sm4() {
         // let key = "20513ef4ae9c3fbdb4e0ed6117863d10";
         let key = "26760c58d91f4d9518d74b0a95c8d387";
-        let hex_key = CryptoTools::hex_decode(key).unwrap();
+        let hex_key = CryptoUtil::hex_decode(key).unwrap();
 
         // let text = "{\"transSerialNo\":\"0fd3ebaf-368b-411d-a2f3-41067d5a50b4\",\"partnerName\":\"P_XWB_PE_GP\",\"partnerCode\":\"P_XWB_PE_GP\",\"departmentCode\":\"_2351416_0001\",\"transferCode\":\"APPLY\",\"schemeName\":\"政企（单三者）\",\"contract\":{\"baseInfo\":{\"productCode\":\"MP13000097\",\"inputNetworkFlag\":\"internet\",\"dataSource\":\"openApi\",\"insuranceBeginDate\":\"2026-01-28 00:00:01\",\"insuranceEndDate\":\"2026-01-28 23:59:59\"},\"attachmentGroupList\":[{\"documentGroupId\":\"P_XWB_PE_GP-20260116151210-da2d665895ea4e3f94cdbd4f00a7c0c9\",\"documentGroupType\":\"GRZJ/TTZJ01\"}],\"extendInfo\":{\"isPolicyBeforePayfee\":\"1\"},\"applicantInfoList\":[{\"name\":\"成都拓域跃腾科技有限责任公司\",\"linkManName\":\"张三\",\"certificateNo\":\"91510107MA697XGQ9A\",\"mobileTelephone\":\"13980489834\",\"province\":\"510000\",\"city\":\"510100\",\"county\":\"510101\",\"address\":\"成都市武侯区电信南街高速大厦301室\",\"personnelType\":\"0\",\"certificateType\":\"03\",\"birthday\":\"\",\"age\":\"0\",\"nationality\":\"156\",\"sexCode\":\"M\"}],\"insurantInfoList\":[{\"name\":\"成都拓域跃腾科技有限责任公司\",\"linkManName\":\"张三\",\"certificateNo\":\"91510107MA697XGQ9A\",\"mobileTelephone\":\"13980489834\",\"province\":\"510000\",\"city\":\"510100\",\"county\":\"510101\",\"address\":\"成都市武侯区电信南街高速大厦301室\",\"personnelType\":\"0\",\"certificateType\":\"03\",\"birthday\":\"\",\"age\":\"0\",\"nationality\":\"156\",\"sexCode\":\"M\"}],\"riskGroupInfoList\":[{\"riskPropertyInfoList\":[{\"riskPropertyMap\":{\"insrUhbtPlneInfo\":[{\"uhbtPlneBrnd\":\"大疆\",\"uhbtPlneMdl\":\"DJIM300RTK\",\"uhbtPlneMachType\":\"1\",\"uhbtPlnePwrType\":\"0\",\"plneBodyCode\":\"A19045-10001\",\"mainCtlCode\":\"A19045-10001\",\"uhbtPlneInvcTm\":\"2022-08-09\",\"plneBodyInsrAmt\":\"0\",\"plneBodyFeeRate\":\"0\",\"thrdInsrAmt\":\"500000.00\",\"thrdDutyFeeRate\":\"0.2\",\"uhbtPlneMainPurpCatg\":\"09\",\"uhbtPlneMaxTakeOffWt\":\"100KG\"}],\"crryMass\":[]}}]}]}}";
         // let data = SmTools::sm4_ecb(&hex_key, text.as_bytes(), true);
@@ -45,14 +45,13 @@ mod tests {
 
         println!("{data_str}");
         let text = BASE64_STANDARD.decode(data_str).unwrap();
-        let str = SmTools::sm4_ecb(&hex_key, &text, false);
+        let str = SmUtil::sm4_ecb(&hex_key, &text, false);
         println!("{}", String::from_utf8(str).unwrap());
     }
 
     #[test]
     fn test_hmac_sha256() {
-        let data =
-            CryptoTools::hmac_sha256_base64("e1K9gGrN27wZGPu4JVZEKlnRHKF6DcFq", "HmacSHA256");
+        let data = CryptoUtil::hmac_sha256_base64("e1K9gGrN27wZGPu4JVZEKlnRHKF6DcFq", "HmacSHA256");
         println!("{data}")
     }
 }

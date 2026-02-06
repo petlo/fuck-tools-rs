@@ -1,13 +1,13 @@
-use crate::utils::tools_crypto::CryptoTools;
+use crate::crypto_util::crypto::CryptoUtil;
 use sm_crypto::{sm2, sm3, sm4};
 
-pub struct SmTools;
+pub struct SmUtil;
 
-impl SmTools {
+impl SmUtil {
     pub fn sm2_sign(private_key: &str, text: &str) -> String {
         let sign_ctx = sm2::Sign::new(private_key);
         let sign_bytes = sign_ctx.sign_der(text.as_bytes(), true);
-        CryptoTools::base64_encode(&sign_bytes)
+        CryptoUtil::base64_encode(&sign_bytes)
     }
 
     pub fn sm3(vec_u8: &[u8]) -> String {

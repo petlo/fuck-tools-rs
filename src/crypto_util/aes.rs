@@ -1,11 +1,28 @@
 use aes::Aes128;
 use aes::cipher::{BlockDecrypt, BlockEncrypt, KeyInit, generic_array::GenericArray};
 use anyhow::{Error, bail};
+use base64::Engine;
+use base64::prelude::BASE64_STANDARD;
 use hex;
+use rand::Rng;
 
-pub struct AesTools;
+pub struct AesUtil;
 
-impl AesTools {
+impl AesUtil {
+    // 生成AES-256密钥（32字节）
+    pub fn generate_aes256_key() -> String {
+        let mut key = [0u8; 32];
+        rand::rng().fill_bytes(&mut key);
+        BASE64_STANDARD.encode(key).to_uppercase()
+    }
+
+    // 生成AES-128密钥（16字节）
+    pub fn generate_aes128_key() -> String {
+        let mut key = [0u8; 16];
+        rand::rng().fill_bytes(&mut key);
+        BASE64_STANDARD.encode(key).to_uppercase()
+    }
+
     pub fn aes_ecb_encrypt(text: &str, key: &[u8]) -> Result<String, Error> {
         // 确保 key 是 16 字节
         if key.len() != 16 {
