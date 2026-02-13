@@ -21,7 +21,7 @@ impl PwdUser {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct JWTClaims {
     pub sub: String, // 用户ID
     pub username: String,

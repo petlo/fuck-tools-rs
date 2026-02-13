@@ -1,3 +1,4 @@
+use anyhow::{anyhow, Error};
 use snowflake_rs::{STANDARD_EPOCH, SnowFlakeId};
 use uuid::Uuid;
 
@@ -5,8 +6,19 @@ pub struct IdUtil;
 
 impl IdUtil {
     /// 生成雪花ID
-    pub fn gen_snowflake_id() -> Result<u64, String> {
-        SnowFlakeId::new(1, STANDARD_EPOCH).generate_id()
+    pub fn gen_snowflake_id() -> Result<u64, Error> {
+        match SnowFlakeId::new(1, STANDARD_EPOCH).generate_id() {
+            Ok(id_u64) => Ok(id_u64),
+            Err(_) => Err(anyhow!("Could not generate Snowflake id")),
+        }
+    }
+
+    /// 生成雪花ID
+    pub fn gen_snowflake_id_str() -> Result<String, Error> {
+        match SnowFlakeId::new(1, STANDARD_EPOCH).generate_id() {
+            Ok(id_u64) => Ok(id_u64.to_string()),
+            Err(_) => Err(anyhow!("Could not generate Snowflake id")),
+        }
     }
 
     /// 生成 UUID V4
